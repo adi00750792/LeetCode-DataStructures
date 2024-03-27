@@ -1,22 +1,17 @@
 import java.util.Scanner;
 
 public class selectionSort {
-    int select(int arr[], int i) {
-        int minIndex = i;
-        for (int j = i + 1; j < arr.length; j++) {
-            if (arr[j] < arr[minIndex]) {
-                minIndex = j;
-            }
-        }
-        return minIndex;
-    }
 
     void selectionSortMain(int arr[], int n) {
 
         // code here
-        for (int i = 0; i < n - 2; i++) {
-            int minIndex = select(arr, i);
-
+        for (int i = 0; i <= n - 2; i++) {
+            int minIndex = i;
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[j] < arr[minIndex]) {
+                    minIndex = j;
+                }
+            }
             int temp = arr[i];
             arr[i] = arr[minIndex];
             arr[minIndex] = temp;
@@ -37,7 +32,7 @@ public class selectionSort {
             }
 
             selectionSort obj = new selectionSort();
-            obj.selectionSort(arr, n);
+            obj.selectionSortMain(arr, n);
 
             System.out.println("Sorted array:");
             for (int i = 0; i < n; i++)
